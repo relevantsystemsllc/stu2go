@@ -1,6 +1,6 @@
-# stu2go
+# stu2go_flutter
 
-A new Flutter application.
+A new Flutter project.
 
 ## Getting Started
 
