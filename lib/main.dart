@@ -9,8 +9,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Stu2go',
       theme: ThemeData(
-        // primaryColor: Color.fromARGB(255, 41, 98, 255),
-        primaryColor: Color(0xFF2962FF),
+        primaryColor: Color.fromARGB(255, 41, 98, 255),
+        // primaryColor: Color(0xFF2962FF),
         fontFamily: 'Avenir',
       ),
       home: LoginScreen(),
