@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:stu2go_flutter/screens/role_screen.dart';
 
-class SignInButton extends StatelessWidget {
-  const SignInButton({
-    Key key,
-  }) : super(key: key);
+class CustomButton extends StatelessWidget {
+  const CustomButton({Key key, this.onTap, this.text}) : super(key: key);
+
+  final VoidCallback onTap;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: null,
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.only(
           top: 10,
@@ -37,7 +37,7 @@ class SignInButton extends StatelessWidget {
         width: 250,
         child: Center(
           child: Text(
-            'SIGN IN',
+            text,
             style: TextStyle(
               fontSize: 18,
               fontFamily: 'Avenir',

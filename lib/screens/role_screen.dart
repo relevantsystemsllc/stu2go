@@ -14,45 +14,63 @@ class RoleScreen extends StatelessWidget {
     // });
 
     // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
+    //   SystemUiOverlayStyle.dark.copyWith(
     //     // statusBarBrightness: Brightness.dark,
-    //     statusBarIconBrightness: Platform.isAndroid ? Brightness.light : null,
-    //     statusBarColor:
-    //         Platform.isAndroid ? Theme.of(context).primaryColor : null,
-    //     systemNavigationBarColor:
-    //         Platform.isAndroid ? Theme.of(context).primaryColor : null,
-    //     systemNavigationBarIconBrightness: Brightness.dark,
+    //     statusBarIconBrightness: Brightness.light,
+    //     statusBarColor: Theme.of(context).primaryColor,
+    //     systemNavigationBarColor: Theme.of(context).primaryColor,
+    //     systemNavigationBarIconBrightness: Brightness.light,
     //   ),
     // );
+
     _goToArtistSignUp() {
       Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => SignUp(role: 'Artist'),
-        ),
+        MaterialPageRoute(builder: (context) {
+          return AnnotatedRegion(
+            value: SystemUiOverlayStyle.light.copyWith(
+              statusBarColor: Colors.white,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            child: SignUp(role: 'Artist'),
+          );
+        }),
       );
     }
 
     _goToEngineerSignUp() {
       Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => SignUp(role: 'Engineer'),
-        ),
+        MaterialPageRoute(builder: (context) {
+          return AnnotatedRegion(
+            value: SystemUiOverlayStyle.light.copyWith(
+              statusBarColor: Colors.white,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            child: SignUp(role: 'Engineer'),
+          );
+        }),
       );
     }
 
     _goToRecStudioSignUp() {
       Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => SignUp(role: 'RecStudio'),
-        ),
+        MaterialPageRoute(builder: (context) {
+          return AnnotatedRegion(
+            value: SystemUiOverlayStyle.light.copyWith(
+              statusBarColor: Colors.white,
+              statusBarIconBrightness: Brightness.dark,
+            ),
+            child: SignUp(role: 'RecStudio'),
+          );
+        }),
       );
     }
 
-    return Material(
-      child: Container(
-        color: Theme.of(context).primaryColor,
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -79,6 +97,8 @@ class RoleScreen extends StatelessWidget {
               child: OutlinedButton(
                 onTap: _goToArtistSignUp,
                 text: 'ARTIST',
+                outlineColor: Colors.white,
+                textColor: Colors.white,
               ),
             ),
             Padding(
@@ -86,6 +106,8 @@ class RoleScreen extends StatelessWidget {
               child: OutlinedButton(
                 onTap: _goToEngineerSignUp,
                 text: 'ENGINEER',
+                outlineColor: Colors.white,
+                textColor: Colors.white,
               ),
             ),
             Padding(
@@ -93,6 +115,8 @@ class RoleScreen extends StatelessWidget {
               child: OutlinedButton(
                 onTap: _goToRecStudioSignUp,
                 text: 'RECORDING STUDIO',
+                outlineColor: Colors.white,
+                textColor: Colors.white,
               ),
             ),
           ],

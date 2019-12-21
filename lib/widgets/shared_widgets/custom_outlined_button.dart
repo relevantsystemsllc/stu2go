@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class OutlinedButton extends StatelessWidget {
-  const OutlinedButton({Key key, this.onTap, this.text}) : super(key: key);
+  const OutlinedButton(
+      {Key key, this.onTap, this.text, this.textColor, this.outlineColor})
+      : super(key: key);
 
   final VoidCallback onTap;
   final String text;
+  final Color textColor;
+  final Color outlineColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,7 @@ class OutlinedButton extends StatelessWidget {
             22.5,
           ),
           border: Border.all(
-            color: Colors.white,
+            color: outlineColor,
           ),
         ),
         width: 200,
@@ -32,7 +36,7 @@ class OutlinedButton extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: 13,
-              color: Colors.white,
+              color: textColor,
             ),
           ),
         ),
