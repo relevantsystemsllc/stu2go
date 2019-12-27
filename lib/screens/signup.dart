@@ -60,7 +60,7 @@ class _SignUpState extends State<SignUp> {
           children: <Widget>[
             Center(
               child: Text(
-                'Sign Up',
+                'Sign Up - ${widget.role}',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -170,7 +170,7 @@ class _SignUpState extends State<SignUp> {
           children: <Widget>[
             Center(
               child: Text(
-                'Sign Up',
+                'Sign Up - ${widget.role}',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -282,7 +282,7 @@ class _SignUpState extends State<SignUp> {
           children: <Widget>[
             Center(
               child: Text(
-                'Sign Up',
+                'Sign Up - ${widget.role}',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -319,9 +319,10 @@ class _SignUpState extends State<SignUp> {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Radio(
-              groupValue: false,
-              onChanged: null,
-              value: false,
+              groupValue: true,
+              onChanged: (value) => true,
+              value: true,
+              activeColor: Theme.of(context).primaryColor,
             ),
             Text(
               'YES',

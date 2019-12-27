@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({Key key, this.onTap, this.text}) : super(key: key);
+  const CustomButton({Key key, this.onTap, this.text, this.textFontSize = 18})
+      : super(key: key);
 
   final VoidCallback onTap;
   final String text;
+  final double textFontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class CustomButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: textFontSize,
               fontFamily: 'Avenir',
               color: Colors.white,
             ),

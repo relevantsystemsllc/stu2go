@@ -14,9 +14,6 @@ class FormSection extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          SizedBox(
-            height: 20,
-          ),
           Text(
             'NAME',
             style: TextStyle(

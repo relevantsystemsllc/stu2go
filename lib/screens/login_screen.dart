@@ -40,6 +40,8 @@ class LoginScreen extends StatelessWidget {
         (MediaQuery.of(context).padding.top +
             MediaQuery.of(context).padding.bottom);
 
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return AnnotatedRegion(
       value: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.white,
@@ -50,59 +52,59 @@ class LoginScreen extends StatelessWidget {
       child: Material(
         color: Colors.white,
         child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Container(
-                height: screenHeight * 0.4,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    AppLogo(),
-                    AppTitle(),
-                  ],
-                ),
-              ),
-              Container(
-                height: screenHeight * 0.3,
-                child: FormSection(),
-              ),
-              Container(
-                height: screenHeight * 0.3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    CustomButton(
+          child: Scaffold(
+            resizeToAvoidBottomInset: true,
+            // resizeToAvoidBottomPadding: false,
+            body: Container(
+              color: Colors.white,
+              width: screenWidth,
+              height: screenHeight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  SizedBox(
+                    height: 20,
+                  ),
+                  AppLogo(),
+                  AppTitle(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  FormSection(),
+                  Container(
+                    margin: EdgeInsets.only(
+                      bottom: 40,
+                    ),
+                    child: CustomButton(
                       text: 'SIGN IN',
                       onTap: _signIn,
                     ),
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'DON’T HAVE AN ACCOUNT?',
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'DON’T HAVE AN ACCOUNT?',
+                        style: TextStyle(
+                          color: Color(0xff7D87A4),
+                        ),
+                      ),
+                      FlatButton(
+                        onPressed: _signUpSelectRole,
+                        child: Text(
+                          'SIGN UP',
                           style: TextStyle(
-                            color: Color(0xff7D87A4),
+                            fontFamily: 'Avenir',
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
-                        FlatButton(
-                          onPressed: _signUpSelectRole,
-                          child: Text(
-                            'SIGN UP',
-                            style: TextStyle(
-                              fontFamily: 'Avenir',
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                      )
+                    ],
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: <Widget>[
             _buildOffstageNavigator(TabItem.search),

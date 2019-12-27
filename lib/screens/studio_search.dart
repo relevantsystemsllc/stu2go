@@ -5,6 +5,9 @@ import 'package:stu2go_flutter/widgets/shared_widgets/custom_outlined_button.dar
 
 @override
 class StudioSearchScreen extends StatelessWidget {
+  StudioSearchScreen({Key key, this.onPush}) : super(key: key);
+  final VoidCallback onPush;
+
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
@@ -53,7 +56,7 @@ class StudioSearchScreen extends StatelessWidget {
                       ),
                       Icon(
                         MyNavBarIcons.navdrawicon,
-                        size: 20,
+                        size: 18,
                         color: Theme.of(context).primaryColor,
                       )
                     ],
@@ -73,7 +76,6 @@ class StudioSearchScreen extends StatelessWidget {
                     right: 16.0,
                   ),
                   padding: EdgeInsets.symmetric(
-                    vertical: 12.0,
                     horizontal: 16.0,
                   ),
                   decoration: BoxDecoration(
@@ -95,15 +97,23 @@ class StudioSearchScreen extends StatelessWidget {
                         Icons.search,
                         color: Theme.of(context).primaryColor,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          'Search Studios and Engineers',
-                          style: TextStyle(
-                            color: Color(0xff7D87A4),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: TextField(
+                            autofocus: false,
+                            decoration: InputDecoration.collapsed(
+                              hintText: 'Search Studios and Engineers',
+                              hintStyle: TextStyle(
+                                color: Color(0xff7D87A4),
+                              ),
+                            ),
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -171,7 +181,7 @@ class StudioSearchScreen extends StatelessWidget {
                           ),
                           child: OutlinedButton(
                             text: 'LOCATE',
-                            onTap: null,
+                            onTap: onPush,
                             textColor: Theme.of(context).primaryColor,
                             outlineColor: Theme.of(context).primaryColor,
                           ),
