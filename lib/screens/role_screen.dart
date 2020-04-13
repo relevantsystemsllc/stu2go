@@ -26,13 +26,7 @@ class RoleScreen extends StatelessWidget {
     _goToArtistSignUp() {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) {
-          return AnnotatedRegion(
-            value: SystemUiOverlayStyle.light.copyWith(
-              statusBarColor: Colors.white,
-              statusBarIconBrightness: Brightness.dark,
-            ),
-            child: SignUp(role: 'Artist'),
-          );
+          return SignUp(role: 'Artist');
         }),
       );
     }
@@ -40,13 +34,7 @@ class RoleScreen extends StatelessWidget {
     _goToEngineerSignUp() {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) {
-          return AnnotatedRegion(
-            value: SystemUiOverlayStyle.light.copyWith(
-              statusBarColor: Colors.white,
-              statusBarIconBrightness: Brightness.dark,
-            ),
-            child: SignUp(role: 'Engineer'),
-          );
+          return SignUp(role: 'Engineer');
         }),
       );
     }
@@ -54,13 +42,7 @@ class RoleScreen extends StatelessWidget {
     _goToRecStudioSignUp() {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) {
-          return AnnotatedRegion(
-            value: SystemUiOverlayStyle.light.copyWith(
-              statusBarColor: Colors.white,
-              statusBarIconBrightness: Brightness.dark,
-            ),
-            child: SignUp(role: 'RecStudio'),
-          );
+          return SignUp(role: 'RecStudio');
         }),
       );
     }
