@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stu2go_flutter/my_nav_bar_icons_icons.dart';
+import 'package:stu2go_flutter/screens/locate_engineer_screen.dart';
 import 'package:stu2go_flutter/widgets/shared_widgets/custom_outlined_button.dart';
 
 @override
 class StudioSearchScreen extends StatelessWidget {
-  StudioSearchScreen({Key key, this.onPush}) : super(key: key);
-  final VoidCallback onPush;
+  StudioSearchScreen({Key key}) : super(key: key);
 
   Widget build(BuildContext context) {
+    void _goToLocateEngineer() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LocateEngineerScreen(),
+        ),
+      );
+    }
+
     return Stack(
       children: <Widget>[
         Container(
@@ -16,7 +25,7 @@ class StudioSearchScreen extends StatelessWidget {
           height: double.infinity,
           child: Image.asset(
             "assets/images/map.png",
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
         SafeArea(
@@ -181,7 +190,7 @@ class StudioSearchScreen extends StatelessWidget {
                           ),
                           child: OutlinedButton(
                             text: 'LOCATE',
-                            onTap: onPush,
+                            onTap: _goToLocateEngineer,
                             textColor: Theme.of(context).primaryColor,
                             outlineColor: Theme.of(context).primaryColor,
                           ),

@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:stu2go_flutter/my_nav_bar_icons_icons.dart';
+import 'package:stu2go_flutter/screens/studio_profile_screen.dart';
 import 'package:stu2go_flutter/widgets/locEngineer/studio_card_item.dart';
 import 'package:stu2go_flutter/widgets/shared_widgets/custom_button.dart';
 import 'package:stu2go_flutter/widgets/shared_widgets/custom_outlined_button.dart';
 
 class LocateEngineerScreen extends StatelessWidget {
-  const LocateEngineerScreen({Key key, this.onItemSelect}) : super(key: key);
-
-  final VoidCallback onItemSelect;
+  const LocateEngineerScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    void _goToStudioProfile() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => StudioProfileScreen(),
+        ),
+      );
+    }
+
     var size = MediaQuery.of(context).size;
 
     final double itemWidth = size.width / 2;
@@ -39,20 +47,18 @@ class LocateEngineerScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.fromLTRB(0, 8, 16, 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        onTap: () => Navigator.of(context).pop(),
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () => Navigator.of(context).pop(),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
+                        padding: const EdgeInsets.only(left: 5.0),
                         child: Text(
                           'Locate Engineer',
                           style: TextStyle(
@@ -164,7 +170,7 @@ class LocateEngineerScreen extends StatelessWidget {
                 30,
                 (index) => GestureDetector(
                   child: StudioCardItem(),
-                  onTap: onItemSelect,
+                  onTap: _goToStudioProfile,
                 ),
               ),
             ),

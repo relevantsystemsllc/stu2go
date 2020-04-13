@@ -29,20 +29,18 @@ class CalendarScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.fromLTRB(0, 8, 16, 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        onTap: () => Navigator.of(context).pop(),
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () => Navigator.of(context).pop(),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
+                        padding: const EdgeInsets.only(left: 5.0),
                         child: Text(
                           'Schedule Recording',
                           style: TextStyle(

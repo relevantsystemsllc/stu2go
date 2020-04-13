@@ -1,12 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:stu2go_flutter/my_nav_bar_icons_icons.dart';
+import 'package:stu2go_flutter/screens/calendar_screen.dart';
 
 class StudioProfileScreen extends StatefulWidget {
-  const StudioProfileScreen({Key key, this.onScheduleRecording})
-      : super(key: key);
-
-  final VoidCallback onScheduleRecording;
+  const StudioProfileScreen({Key key}) : super(key: key);
 
   @override
   _StudioProfileScreenState createState() => _StudioProfileScreenState();
@@ -15,6 +13,15 @@ class StudioProfileScreen extends StatefulWidget {
 class _StudioProfileScreenState extends State<StudioProfileScreen> {
   int _currentPage = 0;
   int _currentAvatarPage = 0;
+
+  void _goToScheduleRecording() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CalendarScreen(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,23 +47,21 @@ class _StudioProfileScreenState extends State<StudioProfileScreen> {
               ),
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.fromLTRB(0, 8, 16, 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      GestureDetector(
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        onTap: () => Navigator.of(context).pop(),
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () => Navigator.of(context).pop(),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
+                        padding: const EdgeInsets.only(left: 5.0),
                         child: Text(
                           'Music Studio',
                           style: TextStyle(
@@ -346,7 +351,7 @@ class _StudioProfileScreenState extends State<StudioProfileScreen> {
                     maxWidth: 180,
                   ),
                   child: GestureDetector(
-                    onTap: widget.onScheduleRecording,
+                    onTap: _goToScheduleRecording,
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.transparent,
